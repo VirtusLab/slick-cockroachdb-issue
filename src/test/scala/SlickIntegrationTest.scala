@@ -2,7 +2,7 @@ import com.typesafe.config.ConfigFactory
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 import slick.basic.DatabaseConfig
-import slick.jdbc.{ PostgresProfile, ResultSetHoldability }
+import slick.jdbc.PostgresProfile
 
 import scala.concurrent.Await
 import scala.concurrent.duration._

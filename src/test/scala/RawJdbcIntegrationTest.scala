@@ -6,7 +6,7 @@ import java.sql.{ Connection, DriverManager, ResultSet }
 class RawJdbcIntegrationTest extends AnyWordSpec with Matchers with CockroachBackedSpec with RawJdbcTestOps {
 
   "cockroach via raw postgres jdbc driver" should {
-    lazy val url = s"${container.jdbcUrl}&user=${container.username}&password=${container.password}&loggerLevel=TRACE"
+    lazy val url = s"${container.jdbcUrl}&user=${container.username}&password=${container.password}"
     Class.forName("org.postgresql.Driver")
     def getConnection: Connection = DriverManager.getConnection(url)
 

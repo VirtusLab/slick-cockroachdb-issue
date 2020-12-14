@@ -24,4 +24,4 @@ libraryDependencies ++= Seq(
   "com.dimafeng"        %% "testcontainers-scala-cockroachdb" % TestContainersVersion % Test
 )
 
-Test / fork := true
+//Test / fork := true

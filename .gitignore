@@ -1,4 +1,5 @@
-myapp.log
+*.log
+*.lck
 .idea
 .bsp
 target/

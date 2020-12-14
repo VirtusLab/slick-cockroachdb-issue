@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-
+<configuration debug="false">
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>TRACE</level>
@@ -16,7 +15,14 @@
     <logger name="org.testcontainers" level="ERROR" />
     <logger name="org.postgresql" level="TRACE" />
 
-    <root level="TRACE">
+    <root level="ALL">
         <appender-ref ref="STDOUT"/>
     </root>
+
+    <!-- propagates changes made to the level of any logback-classic logger onto the java.util.logging framework -->
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <!-- Setting the resetJUL property of LevelChangePropagator will reset all previous level configurations
+             of all j.u.l. loggers. However, previously installed handlers will be left untouched. -->
+        <resetJUL>true</resetJUL>
+    </contextListener>
 </configuration>
