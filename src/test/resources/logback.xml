@@ -3,18 +3,20 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>DEBUG</level>
+            <level>TRACE</level>
         </filter>
         <encoder>
             <pattern>[%date{ISO8601}] [%level] [%logger] [%marker] [%thread] - %msg MDC: {%mdc}%n</pattern>
         </encoder>
     </appender>
 
-    <logger name="slick.compiler" level="ERROR" />
+    <logger name="slick" level="ERROR" />
+    <logger name="com.zaxxer.hikari" level="ERROR" />
     <logger name="org.flywaydb" level="ERROR" />
     <logger name="org.testcontainers" level="ERROR" />
+    <logger name="org.postgresql" level="TRACE" />
 
-    <root level="DEBUG">
+    <root level="TRACE">
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>

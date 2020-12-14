@@ -20,7 +20,7 @@ class TestRepo private ()(implicit ec: ExecutionContext) {
 
   def addAndPersist(id: String, number: Double): DBIO[Unit] =
     for {
-      maybeExisting <- findById(id).result.headOption
+      maybeExisting <- findById(id).map(_.forUpdate).result.headOption
       row = maybeExisting.map(cs => cs.copy(currentSum = cs.currentSum + number)).getOrElse(CurrentSum(id, number))
       _ <- currentSums.insertOrUpdate(row)
     } yield ()

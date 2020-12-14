@@ -8,7 +8,7 @@ trait CockroachBackedSpec extends ForAllTestContainer { self: Suite =>
   override val container: CockroachContainer =
     CockroachContainer(
       dockerImageName = DockerImageName.parse("cockroachdb/cockroach:v20.1.0"),
-      urlParams = Map("reWriteBatchedInserts" -> "true")
+      urlParams = Map("reWriteBatchedInserts" -> "true", "loggerLevel" -> "TRACE")
     )
 
   override def afterStart(): Unit = {

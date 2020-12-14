@@ -2,13 +2,13 @@ import com.typesafe.config.ConfigFactory
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 import slick.basic.DatabaseConfig
-import slick.jdbc.PostgresProfile
+import slick.jdbc.{ PostgresProfile, ResultSetHoldability }
 
 import scala.concurrent.Await
 import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext.Implicits.global
 
-class IntegrationTest extends AnyWordSpec with Matchers with CockroachBackedSpec {
+class SlickIntegrationTest extends AnyWordSpec with Matchers with CockroachBackedSpec {
 
   "cockroachdb integration for slick" should {
     lazy val config = ConfigFactory
@@ -19,7 +19,13 @@ class IntegrationTest extends AnyWordSpec with Matchers with CockroachBackedSpec
            |    url      = "${container.jdbcUrl}"
            |    user     = "${container.username}"
            |    password = "${container.password}"
+           |    maxConnections = 1
+           |    minConnections = 1
+           |    numThreads = 1
+           |    maxThreads = 1
            |  }
+           |  numThreads = 1
+           |  maxThreads = 1
            |}
            |""".stripMargin
       }
