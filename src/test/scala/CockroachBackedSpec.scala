@@ -14,6 +14,7 @@ trait CockroachBackedSpec extends ForAllTestContainer { self: Suite =>
       urlParams = Map(
         "reWriteBatchedInserts" -> "true",
         "sslmode" -> "disable",
+        "loggerLevel" -> "TRACE",
         "loggerFile" -> s"pgjdbc-${self.suiteName}.log"
       )
     )
