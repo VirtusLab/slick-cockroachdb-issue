@@ -1,11 +1,11 @@
-import com.dimafeng.testcontainers.{CockroachContainer, ForAllTestContainer}
+import com.dimafeng.testcontainers.{ CockroachContainer, ForAllTestContainer }
 import org.flywaydb.core.Flyway
 import org.scalatest.Suite
 import org.testcontainers.utility.DockerImageName
 
 trait CockroachBackedSpec extends ForAllTestContainer { self: Suite =>
   // Ugly but works ;)
-  val format:  java.lang.String = "%4$s %2$s%n %5$s%6$s%n"
+  val format: java.lang.String = "%4$s %2$s%n %5$s%6$s%n"
   System.setProperty("java.util.logging.SimpleFormatter.format", format)
 
   override val container: CockroachContainer =

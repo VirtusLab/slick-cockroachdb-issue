@@ -1,7 +1,7 @@
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
-import java.sql.{ Connection, DriverManager, ResultSet }
+import java.sql.{ Connection, DriverManager }
 
 class RawJdbcIntegrationTest extends AnyWordSpec with Matchers with CockroachBackedSpec with RawJdbcTestOps {
 
