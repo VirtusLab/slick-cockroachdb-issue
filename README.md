@@ -1,5 +1,7 @@
 # Slick and CockroachDB issues
 
+https://github.com/slick/slick/issues/2144
+
 ## Prerequisites
 
 - `docker`
